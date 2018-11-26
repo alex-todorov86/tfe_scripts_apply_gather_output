@@ -4,7 +4,6 @@ A script that uses the TFE API to perform Run operation
 
 # TO-DO
 
-- Add line that finds your current_run ID
 - Add line that finds your configuration ID
 - Create a payload file (payload.json)
 - Add line that creates a new run
@@ -17,3 +16,4 @@ A script that uses the TFE API to perform Run operation
 - Create a provisioning script that installs ```curl``` and ```jq```
 - Create a script ```run_plan_apply.sh```
 - Add line that finds your workspace ID 
+- Add line that finds your current_run ID
