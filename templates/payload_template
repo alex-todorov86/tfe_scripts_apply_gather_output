@@ -9,13 +9,13 @@
       "workspace": {
         "data": {
           "type": "workspaces",
-          "id": "WSPACE_ID"
+          "id": "WSPACE"
         }
       },
       "configuration-version": {
         "data": {
           "type": "configuration-versions",
-          "id": "CONF_ID"
+          "id": "CONF"
         }
       }
     }

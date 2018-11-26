@@ -4,13 +4,13 @@
 # The organization name is passed as a first argument to the script
 # The workspace name is passaed as a second argument to the script
 
-TFE=https://app.terraform.io
+TFE=https://app.terraform.io/api/v2
 
 # The following block of code is going to retrieve your TFE Workspace ID
 WSPACE="$(curl \
   --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/vnd.api+json" \
-  ${TFE}/api/v2/organizations/${1}/workspaces/"{2} 2>/dev/null | jq '.data | .id' | tr -d \")"
+  ${TFE}/organizations/${1}/workspaces/${2} 2>/dev/null | jq '.data | .id' | tr -d \")"
 
 # The following is added for debugging purposes. Will be removed in the final version
 echo -e "Your workspace ID is: \n ${WSPACE} \n"
@@ -19,7 +19,7 @@ echo -e "Your workspace ID is: \n ${WSPACE} \n"
 CURRENT_RUN="$(curl \
   --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/vnd.api+json" \
-  ${TFE}/api/v2/workspaces/${WSPACE}/runs 2>/dev/null | jq '.data | .[0] | .id' | tr -d \")"
+  ${TFE}/workspaces/${WSPACE}/runs 2>/dev/null | jq '.data | .[0] | .id' | tr -d \")"
 
 
 # The following is added for debugging purposes. Will be removed in the final version
@@ -31,7 +31,7 @@ echo -e "Your Current Run ID is: \n ${CURRENT_RUN} \n"
 CONF="$(curl \
   --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/vnd.api+json" \
-  ${TFE}/api/v2/runs/${CURRENT_RUN}/configuration-version 2>/dev/null | jq '.data | .id' | tr -d \")"
+  ${TFE}/runs/${CURRENT_RUN}/configuration-version 2>/dev/null | jq '.data | .id' | tr -d \")"
 
 
 # The following is added for debugging purposes. Will be removed in the final version
@@ -61,7 +61,7 @@ curl \
   --header "Content-Type: application/vnd.api+json" \
   --request POST \
   --data @${OUTPUT_FILE} \
-  ${TFE}/api/v2/runs 2>/dev/null | jq '.data | .id' | tr -d \" > /tmp/new_tfe_run_id
+  ${TFE}/runs 2>/dev/null | jq '.data | .id' | tr -d \" > /tmp/new_tfe_run_id
 
 NEW_TFE_RUN="$(cat /tmp/new_tfe_run_id)"
 
@@ -70,13 +70,14 @@ echo -e "Your New Run ID is: \n "${NEW_TFE_RUN}" \n"
 
 # The following block of code will apply your last created run
 
-# NOTE!!! There should be some check to verify that the previous operation (plan) has ended. 
+# NOTE!!! There should be some check to verify that the previous operation (plan) has ended.
 # Otherwise the apply operation will not run.
 
-echo "waiting 1 minute for the plan to finish
+echo "waiting 1 minute for the plan to finish"
 for x in {1..30}; do
-  echo -n .
+  echo -n
   sleep 2
+done
 echo 'Running the apply block'
 
 curl \
@@ -84,5 +85,4 @@ curl \
   --header "Content-Type: application/vnd.api+json" \
   --request POST \
   --data @${OUTPUT_FILE} \
-  ${TFE}/api/v2/runs/${NEW_TFE_RUN}/actions/apply
-
+  ${TFE}/runs/${NEW_TFE_RUN}/actions/apply
