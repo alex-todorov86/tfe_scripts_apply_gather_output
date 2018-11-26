@@ -4,8 +4,6 @@ A script that uses the TFE API to perform Run operation
 
 # TO-DO
 
-- Create a ```Vagrantfile```
-- Create a provisioning script that installs ```curl``` and ```jq```
 - Create a script ```run_plan_apply.sh```
 - Add line that finds your workspace ID 
 - Add line that finds your current_run ID
@@ -16,3 +14,6 @@ A script that uses the TFE API to perform Run operation
 
 
 # DONE
+
+- Create a ```Vagrantfile```
+- Create a provisioning script that installs ```curl``` and ```jq```
