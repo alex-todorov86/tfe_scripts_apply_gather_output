@@ -9,6 +9,7 @@ A script that uses the TFE API to perform Run operation
 
 # TO-DO
 
+- Create script that retrieves output produced by TFE apply
 - Update README.md with instructions how to use this repository
 
 
@@ -62,4 +63,4 @@ bash /vagrant/scripts/run_plan_apply.sh <your_organization_name_here> <your_work
 ```
 If everything is successful, you should see output similar to the one below: 
 
-![Alt text](pics/success.png?raw=true "Success")
+![Alt text](pics/Success.png?raw=true "Success")
