@@ -86,3 +86,6 @@ curl \
   --request POST \
   --data @${OUTPUT_FILE} \
   ${TFE}/runs/${NEW_TFE_RUN}/actions/apply
+
+
+echo -e "\n OPERATION COMPLETE \n"
