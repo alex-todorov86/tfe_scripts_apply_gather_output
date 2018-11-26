@@ -61,3 +61,5 @@ export TOKEN=<your_API_token_here>
 bash /vagrant/scripts/run_plan_apply.sh <your_organization_name_here> <your_workspace_name_here>
 ```
 If everything is successful, you should see output similar to the one below: 
+
+![Alt text](pics/success.png?raw=true "Success")
