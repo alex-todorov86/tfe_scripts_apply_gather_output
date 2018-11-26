@@ -4,7 +4,7 @@ A script that uses the TFE API to perform Run operation
 
 # TO-DO
 
-- Add a line that applies the new run
+- Update README.md with instructions how to use this repository
 
 
 # DONE
@@ -17,3 +17,4 @@ A script that uses the TFE API to perform Run operation
 - Add line that finds your configuration ID
 - Create a payload file (payload.json)
 - Add line that creates a new run
+- Add a line that applies the new run
