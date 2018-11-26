@@ -1,4 +1,4 @@
-# TFE_Run_Plan_Apply_script
+# tfe_scripts_apply_gather_output
 A script that uses the TFE API to perform Run operation
 
 
