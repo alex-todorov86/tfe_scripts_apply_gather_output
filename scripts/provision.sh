@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-which curl || {
+which curl jq || {
     apt-get update
-    apt-get install -y curl
-}
-
-which jq || {
-    apt-get update
-    apt-get install -y jq
+    apt-get install -y curl jq
 }
