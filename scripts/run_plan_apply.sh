@@ -35,3 +35,11 @@ CONF_ID="$(curl \
 
 # The following is added for debugging purposes. Will be removed in the final version
 echo -e "Your Configuration ID is: \n $CONF_ID \n"
+
+
+# Create a payload file
+
+INPUT_FILE="/vagrant/templates/payload_template"
+OUTPUT_FILE="/tmp/payload.json"
+
+cat $INPUT_FILE | sed "s/WSPACE_ID/"$WSPACE_ID"/g; s/CONF_ID/"$CONF_ID"/g" > $OUTPUT_FILE
