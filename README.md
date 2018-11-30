@@ -9,6 +9,7 @@ A script that uses the TFE API to perform Run operation
 
 # TO-DO
 
+- Create a check that checks if the planning procedure is done and the process could move to the apply phase
 - Create script that retrieves output produced by TFE apply
 - Update README.md with instructions how to use this repository
 
